@@ -1,2 +1,4 @@
 # AI-Gymnasium
-Trying out Farma Foundation Gymnasium
+Trying out Farama Foundation Gymnasium
+
+[Gymnasium](https://gymnasium.farama.org/)
