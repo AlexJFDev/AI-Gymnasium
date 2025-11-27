@@ -32,3 +32,6 @@ The loop and setup are based on the tutorial.
 
 ### Demo
 Watch the agent play blackjack.
+
+### Make Table
+This script gives you a rough visualization of the Blackjack agent with a table. Online you can find a chart of ideal blackjack moves and mine are close-ish.
