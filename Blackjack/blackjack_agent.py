@@ -1,6 +1,8 @@
 from collections import defaultdict
 import gymnasium as gym
 import numpy as np
+import pickle
+import json
 
 Observation = tuple[int, int, bool]
 
@@ -55,3 +57,48 @@ class BlackjackAgent:
 
     def decay_epsilon(self):
         self.epsilon = max(self.final_epsilon, self.epsilon - self.epsilon_decay)
+
+    def save(self, path: str, readable=False):
+        if readable:
+            self.save_json(path)
+        else:
+            self.save_pickle(path)
+    
+    def save_json(self, path: str):
+        data = {}
+        for state, values in self.q_values.items():
+            key = str(state)
+            data[key] = values.tolist()
+        with open(path, "w") as f:
+            json.dump(data, f, indent=2)
+
+    def save_pickle(self, path: str):
+        with open(path, "wb") as f:
+            pickle.dump(dict(self.q_values), f)
+
+    def load(self, path: str, readable=False):
+        if readable:
+            self.load_json(path)
+        else:
+            self.load_pickle(path)
+
+
+    def load_json(self, path: str):
+        with open(path, "r") as f:
+            data = json.load(f)
+        
+        self.q_values = defaultdict(
+            lambda: np.zeros(self.env.action_space.n)
+        )
+
+        for key, values in data.items():
+            state = eval(key)
+            self.q_values[state] = np.array(values, dtype=float)
+
+    def load_pickle(self, path: str):
+        with open(path, "rb") as f:
+            data = pickle.load(f)
+        self.q_values = defaultdict(
+            lambda: np.zeros(self.env.action_space.n),
+            data
+        )

@@ -15,3 +15,20 @@ With `env.action_space` and `env.observation_space` the action and observation s
 With wrappers, the environment can be modified indirectly. In this case, the environment is wrapped in `FlattenObservation`. This represents the environment's observation as a 1d array. Obviously, this is helpful for certain machine learning.
 
 The simulation is started by calling `env.reset()`. Then, in a while loop random actions are taken until the simulation reaches a terminal state. Reward is tracked for logging, but nothing is done with it yet.
+
+## Blackjack
+Based on [this tutorial](https://gymnasium.farama.org/introduction/train_agent/)
+
+In this example, we are building a Blackjack playing agent using Q-learning. The agent is a class called `BlackjackAgent`.
+
+### BlackjackAgent
+I made this class fairly similar to what is outlined in the tutorial. As mentioned, it uses Q-learning. I also added my own methods for saving and loading the agents as either a `.pkl` or a `.json` file. Obviously the `.pkl` makes more sense to use, but it is interesting to be able to look at the `.json`.
+
+### Helpers
+These are very close to what is in the tutorial. They test and visualize the agent.
+
+### Training
+The loop and setup are based on the tutorial.
+
+### Demo
+Watch the agent play blackjack.
