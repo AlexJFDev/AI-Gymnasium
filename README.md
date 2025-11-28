@@ -48,3 +48,6 @@ This class implements an agent with a somewhat similar interface to the BlackJac
 
 ### Training
 This loop is similar to the training loop for blackjack.
+
+### Demo
+This demo will load an agent and run it repeatedly in human mode until you tell it to quit.
