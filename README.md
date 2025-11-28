@@ -34,4 +34,8 @@ The loop and setup are based on the tutorial.
 Watch the agent play blackjack.
 
 ### Make Table
-This script gives you a rough visualization of the Blackjack agent with a table. Online you can find a chart of ideal blackjack moves and mine are close-ish.
+This script gives you a rough visualization of the Blackjack agent with tables. Online you can find a chart of ideal blackjack moves and mine are close-ish. Two tables are created. One is for a soft hand (when the player has an ace) and one is for a hard hand, when the player has no ace. This is because in blackjack, the ace can be either a 1 or 11 allowing for more flexibility than normal.
+
+In each table, column 1 represents the dealer having an ace. There is no 1 valued card in blackjack.
+
+The hard table includes rows for 22 to 31. This is because these are possible in the observation state of a blackjack game. However, in practice, the agent would never train on them because they represent loosing the game. Therefore, the agent defaults to hitting in these impossible states.
