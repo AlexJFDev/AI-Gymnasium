@@ -39,3 +39,12 @@ This script gives you a rough visualization of the Blackjack agent with tables. 
 In each table, column 1 represents the dealer having an ace. There is no 1 valued card in blackjack.
 
 The hard table includes rows for 22 to 31. This is because these are possible in the observation state of a blackjack game. However, in practice, the agent would never train on them because they represent loosing the game. Therefore, the agent defaults to hitting in these impossible states.
+
+## CartPole
+CartPole-v1 is another simulation provided by Gymnasium. It consists of balancing a pole on a cart. It's action space consists of either 1 or 0 while its observation space is 4 floats. For this reason, the Q learning used for Blackjack won't work here. Instead, I am using PyTorch.
+
+### CartPoleAgent
+This class implements an agent with a somewhat similar interface to the BlackJackAgent.
+
+### Training
+This loop is similar to the training loop for blackjack.
