@@ -12,7 +12,7 @@ PLAYER_SOFT_VALUES = range(12, 22) # A soft hand has an ace
 DEALER_VALUES = range(1, 11)
 
 def render_table(frame: pd.DataFrame, title: str):
-    annotations = frame.map(lambda x: "stand" if x == 0 else "hit")
+    annotations = frame.map(lambda x: "s" if x == 0 else "h")
 
     plt.figure(figsize=(12, 6))
     sns.heatmap(
@@ -21,6 +21,8 @@ def render_table(frame: pd.DataFrame, title: str):
         fmt="",
         cmap=["lightcoral", "lightgreen"],
         cbar=False,
+        square=True,
+        linewidths=.5
     )
     plt.title(title)
     plt.xlabel("Dealer Showing")
