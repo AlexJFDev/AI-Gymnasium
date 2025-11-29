@@ -47,7 +47,7 @@ CartPole-v1 is another simulation provided by Gymnasium. It consists of balancin
 This class implements an agent with a somewhat similar interface to the BlackJackAgent.
 
 ### Training
-This loop is similar to the training loop for blackjack.
+This loop is similar to the training loop for blackjack. After training, reward and loss progress are charted.
 
 ### Demo
 This demo will load an agent and run it repeatedly in human mode until you tell it to quit.
