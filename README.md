@@ -17,14 +17,18 @@ This will put the virtual environment into a `.venv` folder at the base of the r
 
 ### Packages
 Regardless of whether or not you setup a virtual environment, you need the following packages for everything to work:
-- box2d-py
-- gymnasium
-- matplotlib
-- pandas
-- pygame
-- swig
-- torch
-- tqdm
+- `box2d-py`
+- `gymnasium`
+- `pygame`
+- `seaborn`
+- `swig`
+- `torch`
+- `tqdm`
+
+You can install them all with this command (it will take a while): 
+```
+pip install box2d-py gymnasium pygame seaborn swig torch tqdm
+```
 
 ## Car Racing
 Based on [this tutorial](https://gymnasium.farama.org/introduction/basic_usage/)
@@ -57,11 +61,7 @@ The loop and setup are based on the tutorial.
 Watch the agent play blackjack.
 
 ### Make Table
-This script gives you a rough visualization of the Blackjack agent with tables. Online you can find a chart of ideal blackjack moves and mine are close-ish. Two tables are created. One is for a soft hand (when the player has an ace) and one is for a hard hand, when the player has no ace. This is because in blackjack, the ace can be either a 1 or 11 allowing for more flexibility than normal.
-
-In each table, column 1 represents the dealer having an ace. There is no 1 valued card in blackjack.
-
-The hard table includes rows for 22 to 31. This is because these are possible in the observation state of a blackjack game. However, in practice, the agent would never train on them because they represent loosing the game. Therefore, the agent defaults to hitting in these impossible states.
+This script gives you a visualization of the Blackjack agent with tables. Online you can find a chart of ideal blackjack moves and mine are close-ish. Two tables are created. One is for a soft hand (when the player has an ace) and one is for a hard hand, when the player has no ace. This is because in blackjack, the ace can be either a 1 or 11 allowing for more flexibility than normal.
 
 ## CartPole
 CartPole-v1 is another simulation provided by Gymnasium. It consists of balancing a pole on a cart. It's action space consists of either 1 or 0 while its observation space is 4 floats. For this reason, the Q learning used for Blackjack won't work here. Instead, I am using PyTorch.
