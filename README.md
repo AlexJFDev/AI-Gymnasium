@@ -3,6 +3,29 @@ Trying out Farama Foundation Gymnasium
 
 [Gymnasium](https://gymnasium.farama.org/)
 
+## Setup
+I recommend you make a Python virtual environment and then install packages there. 
+
+### Virtual Environment
+You can create the environment with this command:
+
+```
+python -m venv .venv
+```
+
+This will put the virtual environment into a `.venv` folder at the base of the repo. If you are using the vscode workspace in this repo, it will start using the environment automatically.
+
+### Packages
+Regardless of whether or not you setup a virtual environment, you need the following packages for everything to work:
+- box2d-py
+- gymnasium
+- matplotlib
+- pandas
+- pygame
+- swig
+- torch
+- tqdm
+
 ## Car Racing
 Based on [this tutorial](https://gymnasium.farama.org/introduction/basic_usage/)
 
