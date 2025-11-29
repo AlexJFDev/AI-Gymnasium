@@ -4,7 +4,6 @@ import torch
 import torch.nn as nn
 import torch.distributions as D
 import torch.optim as optim
-import json
 
 Observation = tuple[float, float, float, float]
 
@@ -97,25 +96,9 @@ class CartPoleAgent:
             GAMMA_KEY: self.gamma,
         }, path)
 
-    def save_json(self, path):
-        data = {
-            POLICY_KEY: self.policy.state_dict(),
-            OPTIMIZER_KEY: self.optimizer.state_dict(),
-            GAMMA_KEY: self.gamma,
-        }
-        with open(path, "w") as f:
-            json.dump(data, f)
-
     def load_torch(self, path):
         checkpoint = torch.load(path)
         
         self.policy.load_state_dict(checkpoint[POLICY_KEY])
         self.optimizer.load_state_dict(checkpoint[OPTIMIZER_KEY])
         self.gamma = checkpoint[GAMMA_KEY]
-
-    def load_json(self, path):
-        with open(path, "r") as f:
-            data = json.load(f)
-        self.policy.load_state_dict(data[POLICY_KEY])
-        self.optimizer.load_state_dict(data[OPTIMIZER_KEY])
-        self.gamma = data[GAMMA_KEY]
